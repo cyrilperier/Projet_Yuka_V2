@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Projet Yuka</string>
+    <string name="flash_on">flash on</string>
+    <string name="flash_off">flash off</string>
+    <string name="auto_focus_on">focus on</string>
+    <string name="auto_focus_off">focus off</string>
+    <string name="nom_du_produit">Nom du produit :</string>
+    <string name="nutri_score">Nutri Score :</string>
+    <string name="ingredient">Ingrédient :</string>
+</resources>
