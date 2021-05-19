@@ -28,6 +28,8 @@ class DetailFavoriActivity : AppCompatActivity(){
     lateinit var favori_ingredient:String
     lateinit var favori_nutri_score:String
     lateinit var favori_url_image:String
+    lateinit var nutriscore:String
+    lateinit var ingredient:String
     var favori_code: Long=0
     lateinit var Newfavorie : Favori
     lateinit var result : GetProductsResult
@@ -59,29 +61,35 @@ class DetailFavoriActivity : AppCompatActivity(){
         }
 
         Dao()
+
+
         when(already_favori){
             true -> {
                 when(scan){
 
                     true->{
                     recoverProduct()
+                        verifeIfReference(result.product.ingredients_text)
                     Name_product_textview?.text= "${result.product.product_name}"
-                    Nutri_Score_textView?.text="${result.product.nutriscore_grade}"
-                    Ingredient_product_textView?.text="${result.product.ingredients_text}"
+                        AfficheNutriScore(result.product.nutriscore_grade)
+                    Ingredient_product_textView?.text="${ingredient}"
                     AffichePicture(result.product.image_url)}
 
                     false->{
+                        verifeIfReference(favori_ingredient)
                     Name_product_textview?.text= "${favori_name}"
-                    Nutri_Score_textView?.text="${favori_nutri_score}"
-                    Ingredient_product_textView?.text="${favori_ingredient}"
+                        Log.d("epf",favori_nutri_score)
+                        AfficheNutriScore(favori_nutri_score)
+                    Ingredient_product_textView?.text="${ingredient}"
                     AffichePicture(favori_url_image)}}
             }
 
             false -> {
                 recoverProduct()
+                verifeIfReference(result.product.ingredients_text)
                 Name_product_textview?.text= "${result.product.product_name}"
-                Nutri_Score_textView?.text="${result.product.nutriscore_grade}"
-                Ingredient_product_textView?.text="${result.product.ingredients_text}"
+                AfficheNutriScore(result.product.nutriscore_grade)
+                Ingredient_product_textView?.text="${ingredient}"
                 AffichePicture(result.product.image_url)
             }
         }
@@ -148,11 +156,12 @@ class DetailFavoriActivity : AppCompatActivity(){
             result = service.getProducts(code)
             Log.d("EPF","$result")
 
+            verifeIfReference(result.product.ingredients_text)
 
             Newfavorie = Favori(
                     null,result.product.product_name,
-                    result.product.nutriscore_grade,
-                    result.product.ingredients_text,
+                    nutriscore,
+                    ingredient,
                     result.product.image_front_small_url,
                     result.product.image_url,
             result.product.code)
@@ -164,7 +173,31 @@ class DetailFavoriActivity : AppCompatActivity(){
         }
 
     }
+fun AfficheNutriScore(nutriscore_picture:String?){
 
+
+
+nutri_score_imageView.setImageResource(
+    when(nutriscore_picture){
+        "a"->R.drawable.nutriscores_a
+        "b"->R.drawable.nutriscores_b
+        "c"->R.drawable.nutriscores_c
+        "d"->R.drawable.nutriscores_d
+        "e"->R.drawable.nutriscores_e
+        else -> R.drawable.question_sign_in_circles
+    })
+
+
+}
+    fun verifeIfReference(ingredientFromApi:String?){
+        ingredient=(
+            if(ingredientFromApi==null){"Not referenced"}
+            else{ingredientFromApi})
+
+        nutriscore=(
+                if(ingredientFromApi==null){"Not referenced"}
+                else{ingredientFromApi})
+    }
 
     private fun AffichePicture(url_picture: String){
 

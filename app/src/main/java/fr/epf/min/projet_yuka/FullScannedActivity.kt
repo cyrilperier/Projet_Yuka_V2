@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -45,7 +46,7 @@ class FullScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler 
 
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
-        //this.deleteDatabase ("favoris-db")
+        
         Dao()
         launchActivity()
         if (state != null) {
@@ -95,7 +96,8 @@ class FullScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler 
         MenuItemCompat.setShowAsAction(menuItem, MenuItem.SHOW_AS_ACTION_NEVER)
         menuItem = menu.add(Menu.NONE, R.id.favori_action, 0, "Favori")
         MenuItemCompat.setShowAsAction(menuItem, MenuItem.SHOW_AS_ACTION_NEVER)
-
+        menuItem = menu.add(Menu.NONE, R.id.APropo_action, 0, "A propo")
+        MenuItemCompat.setShowAsAction(menuItem, MenuItem.SHOW_AS_ACTION_NEVER)
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -127,6 +129,15 @@ class FullScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler 
                 startActivity(intent)
                 true
             }
+            R.id.APropo_action->{
+                AlertDialog.Builder(this)
+                        .setTitle("A propo de l'application")
+                        .setMessage("Nom : Projet Yuka \nVersion : 1 \nDéveloppeur : Cyril PERIER / Henri FORJOT")
+                        .setPositiveButton("Ok"){
+                            _,_ ->
+                        }.show()
+
+                true}
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -155,6 +166,7 @@ try{
         val scan=true
         val intent = Intent(this, DetailFavoriActivity::class.java)
         intent.putExtra("code", code);
+    Log.d("epf", code.toString())
         intent.putExtra("already_favori", already_favori)
         intent.putExtra("scan", scan)
         startActivity(intent)}catch(e:Exception){

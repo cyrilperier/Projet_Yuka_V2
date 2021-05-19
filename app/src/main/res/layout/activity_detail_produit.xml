@@ -24,10 +24,10 @@
         android:id="@+id/Title_Nutri_Score_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/nutri_score"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/Nutri_Score_textView"
+        app:layout_constraintBottom_toTopOf="@+id/nutri_score_imageView"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
@@ -35,6 +35,7 @@
         android:id="@+id/Title_Name_Product_TextVieww"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:text="@string/nom_du_produit"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/Name_product_textview"
@@ -47,8 +48,8 @@
         android:id="@+id/Name_product_textview"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="TextView"
+        android:layout_marginBottom="8dp"
+        android:text="not referenced"
         app:layout_constraintBottom_toTopOf="@+id/Title_Nutri_Score_TextView"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
@@ -57,19 +58,9 @@
         android:id="@+id/Ingredient_product_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:text="TextView"
+        android:layout_marginTop="216dp"
+        android:text="not referenced"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <TextView
-        android:id="@+id/Nutri_Score_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/Title_Ingredient_TextView"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
 
@@ -83,4 +74,16 @@
         app:layout_constraintBottom_toTopOf="@+id/Ingredient_product_textView"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/nutri_score_imageView"
+        android:layout_width="182dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/Title_Ingredient_TextView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_launcher_background"
+        tools:layout_editor_absoluteX="0dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

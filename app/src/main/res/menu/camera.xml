@@ -3,6 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/APropo_action"
+        android:title="A propo" />
+    <item
         android:id="@+id/favori_action"
         android:icon="@android:drawable/btn_star"
         android:title="favori" />
