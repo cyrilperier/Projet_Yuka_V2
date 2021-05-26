@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name="fr.epf.min.projet_yuka.ListFavoriActivity"></activity>
-        <activity android:name="fr.epf.min.projet_yuka.DetailFavoriActivity" android:parentActivityName="fr.epf.min.projet_yuka.FullScannerActivity"/>
+        <activity android:name="fr.epf.min.projet_yuka.DetailActivity" android:parentActivityName="fr.epf.min.projet_yuka.FullScannerActivity"/>
         </application>
 
 </manifest>

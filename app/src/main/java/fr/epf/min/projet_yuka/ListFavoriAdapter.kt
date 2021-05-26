@@ -46,7 +46,7 @@ class ListFavoriAdapter ( val favoris : List<Favori>,val context : Context) : Re
         holder.favoriView.setOnClickListener{
 
             with(it.context){
-                val intent = Intent(this, DetailFavoriActivity::class.java)
+                val intent = Intent(this, DetailActivity::class.java)
                 intent.putExtra("favori_name",favori.name )
                 intent.putExtra("already_favori",true)
                 intent.putExtra("nutriscore_grade",favori.nutri_score)

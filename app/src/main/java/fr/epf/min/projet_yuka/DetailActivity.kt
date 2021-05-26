@@ -21,7 +21,7 @@ import kotlinx.coroutines.runBlocking
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-class DetailFavoriActivity : AppCompatActivity(){
+class DetailActivity : AppCompatActivity(){
     lateinit var database: FavoriDataBase
     lateinit var favoriDao: FavoriDao
     lateinit var favori_name: String
@@ -30,12 +30,14 @@ class DetailFavoriActivity : AppCompatActivity(){
     lateinit var favori_url_image:String
     lateinit var nutriscore:String
     lateinit var ingredient:String
+    lateinit var name:String
     var favori_code: Long=0
     lateinit var Newfavorie : Favori
     lateinit var result : GetProductsResult
     var already_favori =true
     var scan=false
     var code: Long =0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_produit)
@@ -61,34 +63,33 @@ class DetailFavoriActivity : AppCompatActivity(){
         }
 
         Dao()
-
-
+        
         when(already_favori){
             true -> {
                 when(scan){
 
                     true->{
                     recoverProduct()
-                        verifeIfReference(result.product.ingredients_text)
-                    Name_product_textview?.text= "${result.product.product_name}"
-                        AfficheNutriScore(result.product.nutriscore_grade)
+                        verifeIfReference(result.product.ingredients_text,result.product.nutriscore_grade,result.product.product_name)
+                    Name_product_textview?.text= "${name}"
+                        AfficheNutriScore(nutriscore)
                     Ingredient_product_textView?.text="${ingredient}"
                     AffichePicture(result.product.image_url)}
 
                     false->{
-                        verifeIfReference(favori_ingredient)
-                    Name_product_textview?.text= "${favori_name}"
+                        verifeIfReference(favori_ingredient,favori_nutri_score,favori_name)
+                    Name_product_textview?.text= "${name}"
                         Log.d("epf",favori_nutri_score)
-                        AfficheNutriScore(favori_nutri_score)
+                        AfficheNutriScore(nutriscore)
                     Ingredient_product_textView?.text="${ingredient}"
                     AffichePicture(favori_url_image)}}
             }
 
             false -> {
                 recoverProduct()
-                verifeIfReference(result.product.ingredients_text)
-                Name_product_textview?.text= "${result.product.product_name}"
-                AfficheNutriScore(result.product.nutriscore_grade)
+                verifeIfReference(result.product.ingredients_text,result.product.nutriscore_grade,result.product.product_name)
+                Name_product_textview?.text= "${name}"
+                AfficheNutriScore(nutriscore)
                 Ingredient_product_textView?.text="${ingredient}"
                 AffichePicture(result.product.image_url)
             }
@@ -156,10 +157,10 @@ class DetailFavoriActivity : AppCompatActivity(){
             result = service.getProducts(code)
             Log.d("EPF","$result")
 
-            verifeIfReference(result.product.ingredients_text)
+            verifeIfReference(result.product.ingredients_text,result.product.nutriscore_grade,result.product.product_name)
 
             Newfavorie = Favori(
-                    null,result.product.product_name,
+                    null,name,
                     nutriscore,
                     ingredient,
                     result.product.image_front_small_url,
@@ -189,14 +190,18 @@ nutri_score_imageView.setImageResource(
 
 
 }
-    fun verifeIfReference(ingredientFromApi:String?){
+    fun verifeIfReference(ingredientFromApi:String?,nutriscorefromApi:String?,namefromApi:String?){
         ingredient=(
-            if(ingredientFromApi==null){"Not referenced"}
+            if(ingredientFromApi==null || ingredientFromApi==""){"Not referenced"}
             else{ingredientFromApi})
 
         nutriscore=(
-                if(ingredientFromApi==null){"Not referenced"}
-                else{ingredientFromApi})
+                if(nutriscorefromApi==null || nutriscorefromApi==""){"Not referenced"}
+                else{nutriscorefromApi})
+
+        name=(
+                if(namefromApi==null || namefromApi==""){"Not referenced"}
+                else{namefromApi})
     }
 
     private fun AffichePicture(url_picture: String){

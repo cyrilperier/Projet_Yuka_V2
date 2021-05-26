@@ -164,7 +164,7 @@ try{
 
 
         val scan=true
-        val intent = Intent(this, DetailFavoriActivity::class.java)
+        val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra("code", code);
     Log.d("epf", code.toString())
         intent.putExtra("already_favori", already_favori)
