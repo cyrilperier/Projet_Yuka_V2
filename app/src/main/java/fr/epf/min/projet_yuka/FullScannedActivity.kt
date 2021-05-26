@@ -94,9 +94,9 @@ class FullScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler 
         }
 
         MenuItemCompat.setShowAsAction(menuItem, MenuItem.SHOW_AS_ACTION_NEVER)
-        menuItem = menu.add(Menu.NONE, R.id.favori_action, 0, "Favori")
+        menuItem = menu.add(Menu.NONE, R.id.favori_action, 0, "Favoris")
         MenuItemCompat.setShowAsAction(menuItem, MenuItem.SHOW_AS_ACTION_NEVER)
-        menuItem = menu.add(Menu.NONE, R.id.APropo_action, 0, "A propo")
+        menuItem = menu.add(Menu.NONE, R.id.APropo_action, 0, "A propos")
         MenuItemCompat.setShowAsAction(menuItem, MenuItem.SHOW_AS_ACTION_NEVER)
         return super.onCreateOptionsMenu(menu)
     }
@@ -131,8 +131,8 @@ class FullScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler 
             }
             R.id.APropo_action->{
                 AlertDialog.Builder(this)
-                        .setTitle("A propo de l'application")
-                        .setMessage("Nom : Projet Yuka \nVersion : 1 \nDéveloppeur : Cyril PERIER / Henri FORJOT")
+                        .setTitle("A propos de l'application")
+                        .setMessage("Nom : Projet Yuka \nVersion : 2 \nDéveloppeurs : Cyril PERIER / Henri FORJOT")
                         .setPositiveButton("Ok"){
                             _,_ ->
                         }.show()

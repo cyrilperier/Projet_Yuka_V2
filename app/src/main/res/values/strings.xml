@@ -6,5 +6,5 @@
     <string name="auto_focus_off">focus off</string>
     <string name="nom_du_produit">Nom du produit :</string>
     <string name="nutri_score">Nutri Score :</string>
-    <string name="ingredient">Ingrédient :</string>
+    <string name="ingredient">Ingrédients :</string>
 </resources>
