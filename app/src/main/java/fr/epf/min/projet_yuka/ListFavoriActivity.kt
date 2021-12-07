@@ -32,15 +32,7 @@ class ListFavoriActivity : AppCompatActivity() {
                         LinearLayoutManager.VERTICAL,
                         false
                 )
-
-
-
     }
-
-  
-
-
-
     override fun onStart() {
 
 

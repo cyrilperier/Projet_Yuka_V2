@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="fr.epf.min.projet_yuka">
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,15 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Projet_Yuka">
 
-        <activity android:name="fr.epf.min.projet_yuka.FullScannerActivity">
+        <activity android:name="fr.epf.min.projet_yuka.FullScannerActivity"
+            tools:ignore="Instantiatable">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="fr.epf.min.projet_yuka.ListFavoriActivity"></activity>
-        <activity android:name="fr.epf.min.projet_yuka.DetailActivity" android:parentActivityName="fr.epf.min.projet_yuka.FullScannerActivity"/>
+        <activity android:name="fr.epf.min.projet_yuka.ListFavoriActivity"
+            tools:ignore="Instantiatable"></activity>
+        <activity android:name="fr.epf.min.projet_yuka.DetailActivity" android:parentActivityName="fr.epf.min.projet_yuka.FullScannerActivity"
+            tools:ignore="Instantiatable" />
         </application>
 
 </manifest>

@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.14583333333333334" />
+        <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.14583333333333334" />
+        <entry key="app/src/main/res/layout/activity_detail_produit.xml" value="0.7422623103788295" />
+        <entry key="app/src/main/res/layout/activity_full_scanner.xml" value="0.11828774062816616" />
+        <entry key="app/src/main/res/layout/activity_list_favori.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/list_favori_view.xml" value="0.11828774062816616" />
+        <entry key="app/src/main/res/menu/camera.xml" value="0.25384615384615383" />
+        <entry key="app/src/main/res/menu/detail_favori.xml" value="0.1296875" />
+        <entry key="app/src/main/res/menu/detail_product.xml" value="0.1296875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
